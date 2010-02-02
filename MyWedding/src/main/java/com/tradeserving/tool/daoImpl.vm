@@ -1,0 +1,29 @@
+/*
+ * Copyright 2006-2009 Hangzhou Quanshun Technology Co.,Ltd.
+ *
+ * All right reserved.
+ */
+package $PojoDaoImplPackage;
+
+import com.tradeserving.core.json.dao.impl.GenericDaoHibernateImpl;
+import $PojoDaoClasspath;
+import $PojoClasspath;
+
+
+/**
+ * @author $author
+ * @since $Date
+ * @version 1.0
+ */
+
+public class $PojoDaoImpl extends GenericDaoHibernateImpl<$Pojo, Long>
+		implements $PojoDao {
+
+
+	public $PojoDaoImpl() {
+		super($Pojoclass);
+	}
+
+	
+	
+}

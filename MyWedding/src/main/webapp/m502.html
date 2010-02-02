@@ -1,0 +1,27 @@
+<p>Go to <a href="m501.html" class="local">Local Link</a> Module</p>
+
+<p>Forms in the framework without specially treatment will affect on the entire when submitted. A form with a <b>class="ajaxform1"</b> will be automatically turned into an AJAX form when loaded. And when submitted, the result will replace current module.</p>
+
+<p><br/>AJAX Form 1 Example:</p>
+<form name="input" action="echo.php" method="get" class="ajaxform1">
+Type your first name:
+<input type="text" name="FirstName" value="Mickey" size="20"/>
+<br/>
+Type your last name:
+<input type="text" name="LastName" value="Mouse" size="20"/>
+<br/>
+<input class="submit" type="button" value="Submit"/>
+</form>
+
+
+<p><br/>Another AJAX Form (<b>class="ajaxform2"</b>), when submitted, the returned results will replace a DIV.result section embedded in the form.</p>
+<form name="input" action="echo.php" method="get" class="ajaxform2">
+Type your first name:
+<input type="text" name="FirstName" value="Mickey" size="20"/>
+<br/>
+Type your last name:
+<input type="text" name="LastName" value="Mouse" size="20"/>
+<br/>
+<input class="submit" type="button" value="Submit"/>
+<div class="result" style="background:#7f7; padding:1em">Return result goes here!</div>
+</form>

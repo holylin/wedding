@@ -1,0 +1,29 @@
+/*
+ * Copyright 2006-2009 Hangzhou Quanshun Technology Co.,Ltd.
+ *
+ * All right reserved.
+ */
+package $PojoServicePackage;
+
+import com.tradeserving.core.service.GenericManager;
+import $PojoClasspath;
+import java.io.PrintWriter;
+import javax.servlet.http.HttpServletRequest;
+
+
+/**
+ * @author $author
+ * @since $Date
+ * @version 1.0 
+ */
+
+public interface $PojoManager extends GenericManager<$Pojo, Long> {
+
+	void writeJsonOfModelForPage(PrintWriter out,  int pageNo,
+			int pageSize, HttpServletRequest request);
+	
+	void saveOrUpdateModelByJsonData(String jsonData);
+	
+	void deleteByIds(String[] ids);
+	
+}

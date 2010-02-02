@@ -1,0 +1,14 @@
+<h3>Dynamic RSS Reader</h3>
+<p>Include the RSS links you want in a "rssul" unordered list as you've seen on the left, e.g.,</p>
+<pre>
+< ul class="rssul">
+	< li >< a href="http://news.google.com/news?ned=us&topic=h&output=rss">Google News< /a>< /li>
+	< li >< a href="http://rss.msnbc.msn.com/id/3032091/device/rss/rss.xml">MSNBC< /a>< /li>
+	...
+< /ul>
+</pre>
+<p>Once clicked, an AJAX request to <b>rss.php</b> with parameter q={encoded URI of the rss link} will be sent to server side, then <b>rss.php</b> will load the resource and convert the content into readable HTML format.</p>
+<p>A comprehensive PHP Ajax RSS Reader example can be found here at <a href="http://www.w3schools.com/php/php_ajax_rss_reader.asp">http://www.w3schools.com/php/php_ajax_rss_reader.asp</a></p>
+<hr/>
+<h3>Static RSS Reader</h3>
+<p>Below is a static RSS Reader module, whose definition can be found in <b>modules.js</b> (m702)</p>

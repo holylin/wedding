@@ -1,0 +1,4 @@
+利用YuiCompressor压缩js和css的步骤如下：
+1.把整个webapp拷贝到另一个目录下。
+2.修改YuiCompressor.bat的MyJsOrCssDir为拷贝后的目录,同时修改YuiCompressorDir为yuicompressor的放置目录。
+3.执行即可得到所有经过压缩后的js和css文件。

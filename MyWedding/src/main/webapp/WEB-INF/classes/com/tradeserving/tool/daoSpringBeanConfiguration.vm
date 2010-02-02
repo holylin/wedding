@@ -1,0 +1,4 @@
+<bean id="$pojoDao"
+		class="$PojoDaoImplClasspath">
+		<property name="sessionFactory" ref="sessionFactory"></property>	
+</bean>

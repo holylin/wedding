@@ -1,0 +1,20 @@
+/*
+* Copyright 2006-2009 Hangzhou Quanshun Technology Co.,Ltd.
+*
+* All right reserved.
+*/
+package $PojoDaoPackage;
+
+import com.tradeserving.core.json.dao.GenericDao;
+import $PojoClasspath;
+
+/**
+  * @author $author
+  * @since $Date 
+  * @version 1.0 
+ */
+public interface $PojoDao extends GenericDao<$Pojo, Long>{
+	
+
+
+}

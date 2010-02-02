@@ -1,0 +1,52 @@
+/*
+ * Copyright 2009 Hangzhou Quanshun Technology Co.,Ltd.
+ *
+ * All right reserved.
+ */
+package $PojoPackage;
+
+import javax.persistence.Entity;
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.Id;
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
+/**
+ * @author $author
+ * @since $Date
+ */
+@Entity
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+public class $Pojo  implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	private Long id;
+	private String remark;
+	
+	public $Pojo() {
+	}
+
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	@Column(name = "id", unique = true, nullable = false)
+	public Long getId() {
+		return this.id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
+	@Column(name = "remark", length = 65535)
+	public String getRemark() {
+		return this.remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+
+}

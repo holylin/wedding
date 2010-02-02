@@ -1,0 +1,71 @@
+﻿<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>嘉宾签到</title>
+<style type="text/css">
+body {
+	background-color: transparent;
+	margin: 0px;
+	padding: 0px;
+	position: relative;
+	height: 100%;
+	width: 100%;
+	CURSOR: url('pen.CUR');
+}
+
+img#background {
+	height: 100%;
+	width: 100%;
+	z-index: -1;
+	position: absolute;
+	color: white;
+}
+
+#container {
+	position: relative;
+}
+</style>
+</head>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+	function captureSignin() {
+		$.ajax( {
+			url :"signin.jsp",
+			type :'post',
+			dataType :'json',
+			timeout :60000,
+			error : function() {
+				alert("恭喜您，保存成功！");
+				clearSignin();
+			},
+			success : function(json) {
+				alert("恭喜您，保存成功！");
+				clearSignin();
+			}
+		});
+	}
+	function clearSignin(){
+		 var canvas = document.getElementById("imageView");
+		    var ctx = canvas.getContext("2d");
+		    ctx.clearRect(0, 0, 1000, 600);
+	}
+</script>
+<body>
+<img id="background" src="signin2.jpg">
+<input type="button" onclick='captureSignin();' value="保存签名">
+<input type="button" onclick='clearSignin();' value="清除签名">
+<div id="container"><canvas id="imageView" width="1024"
+	height="768">
+<p>Unfortunately, your browser is currently unsupported by our web
+application. We are sorry for the inconvenience. Please use one of the
+supported browsers listed below, or draw the image you want using an
+offline tool.</p>
+<p>Supported browsers: <a href="http://www.opera.com">Opera</a>, <a
+	href="http://www.mozilla.com">Firefox</a>, <a
+	href="http://www.apple.com/safari">Safari</a>, and <a
+	href="http://www.konqueror.org">Konqueror</a>.</p>
+</canvas></div>
+<audio src='hhyy.mp3' autoplay='true' playcount='200' />
+<script type="text/javascript" src="signin.js"></script>
+</body>
+</html>

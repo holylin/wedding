@@ -1,0 +1,92 @@
+/*
+ * Copyright 2006-2009 Hangzhou Quanshun Technology Co.,Ltd.
+ *
+ * All right reserved.
+ */
+package $PojoServiceImplPackage;
+
+import com.tradeserving.core.json.JsonlibUtil;
+import com.tradeserving.core.json.MakeJsonForPage;
+import com.tradeserving.core.service.impl.GenericManagerImpl;
+import $PojoDaoClasspath;
+import $PojoClasspath;
+import $PojoServiceClasspath;
+import java.io.PrintWriter;
+import java.util.Iterator;
+import javax.servlet.http.HttpServletRequest;
+import net.sf.json.JSONObject;
+import org.apache.commons.lang.StringUtils;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
+
+/**
+ * @author $author
+ * @since $Date
+ * @version 1.0 
+ */
+@Service
+@Transactional
+public class $PojoManagerImpl extends GenericManagerImpl<$Pojo, Long>
+		implements $PojoManager {
+		
+	@Autowired
+	private JsonlibUtil jsonlibUtil;
+	
+	@Autowired
+	private $PojoDao $pojoDao;
+
+
+	/**
+	 * 返回分页的json数据。
+	 * @author $author
+	 * @since $Date
+	 */
+	@Override
+	public void writeJsonOfModelForPage(PrintWriter out,
+			int pageNo, int pageSize, HttpServletRequest request) {
+		String hql = "from $Pojo ";
+		MakeJsonForPage page = $pojoDaoDotpagedQuery(hql, pageNo, pageSize);
+		out.write(jsonlibUtil.getJsonForPage(page, false));		
+	}
+
+	/**
+	 * 保存或更新。
+	 * @author $author
+	 * @since $Date
+	 */
+	@Override
+	public void saveOrUpdateModelByJsonData(String jsonData) {
+		$Pojo $pojo = null;
+		JSONObject jsonObject = null;
+		Iterator<JSONObject> it = jsonlibUtil.getIteratorFromJsonArr(jsonData);
+		while(it.hasNext()){
+			jsonObject = it.next();		
+			$pojo = ($Pojo) jsonlibUtil.getJsonObject2Bean(jsonObject, $Pojoclass);
+			$pojoDaoDotsave($pojo);
+		}
+		
+	}
+
+	/**
+	 * 删除。
+	 * @author $author
+	 * @since $Date
+	 */
+	@Override
+	public void deleteByIds(String[] ids) {
+		for(String id : ids){
+			if(StringUtils.isNotBlank(id))
+				$pojoDaoDotremove(new Long(id));
+		}
+		
+	}
+	
+	
+	
+	
+	
+
+	
+	
+}
